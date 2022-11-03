@@ -9,30 +9,17 @@ let persons = [
   { name: "Tatiana", age: 15 },
 ];
 
-function getInfo(pers) {
-  function getResult(arr) {
-    return arr.reduce(function (a, b) {
-      if (a.age > b.age) {
-        return a;
-      }
-      return b;
-    });
-  }
-  const answer = getResult(persons);
-  console.log(answer.name);
-
-  function getMaxAge(arr) {
-    return (
-      arr.reduce(function (a, b) {
-        return a + b.age;
-      }, 0) / arr.length
-    );
-  }
-  console.log(getMaxAge(persons));
-
-  let newList = {};
-  newList.name = answer.name;
-  newList.age = getMaxAge(persons);
-  console.log(newList);
+function getInfo(arr) {
+  const getResult = arr.reduce((a, b) => {
+    if (a.age > b.age) {
+      return a;
+    }
+    return b;
+  });
+  const getMaxAge = arr.reduce((a, b) => a + b.age, 0) / arr.length;
+  const newList = {};
+  newList.name = getResult.name;
+  newList.age = getMaxAge;
+  return newList;
 }
-getInfo(persons);
+console.log(getInfo(persons));
