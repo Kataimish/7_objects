@@ -10,16 +10,16 @@ let persons = [
 ];
 
 function getInfo(arr) {
-  const getResult = arr.reduce((a, b) => {
+  const getOldPers = arr.reduce((a, b) => {
     if (a.age > b.age) {
       return a;
     }
     return b;
   });
-  const getMaxAge = arr.reduce((a, b) => a + b.age, 0) / arr.length;
+  const getAverAge = arr.reduce((a, b) => a + b.age, 0) / arr.length;
   const newList = {};
-  newList.name = getResult.name;
-  newList.age = getMaxAge;
+  newList.name = getOldPers.name;
+  newList.age = getAverAge;
   return newList;
 }
 console.log(getInfo(persons));
